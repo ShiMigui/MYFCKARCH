@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
+dir="$HOME/Pictures/Screenshots"
+mkdir -p "$dir"
+file="$dir/$(date +%Y-%m-%d_%H-%M-%S).png"
 
-SCREENSHOT_DIRECTORY="${SCREENSHOT_DIRECTORY:-$HOME/Pictures/Screenshots}"
+case "${1:-full}" in
+  region)
+    grim -g "$(slurp)" "$file"
+    ;;
+  full|*)
+    grim "$file"
+    ;;
+esac
 
-mkdir -p "$SCREENSHOT_DIRECTORY"
-
-FILE="$SCREENSHOT_DIRECTORY/$(date +%Y-%m-%d_%H-%M-%S).png"
-export FILE
-
-echo "$1" >>/tmp/screenshot.log
-echo "$FILE" >>/tmp/screenshot.log
-
-sh -c "$1"
-
-if [ -f "$FILE" ]; then
-   wl-copy <"$FILE"
-   notify-send "Screenshot" "$(basename "$FILE")"
+if [ -f "$file" ]; then
+  wl-copy < "$file"
+  notify-send "Screenshot" "$(basename "$file")"
 else
-   notify-send "Screenshot Failed" "$FILE"
+  notify-send "Screenshot Failed"
 fi
