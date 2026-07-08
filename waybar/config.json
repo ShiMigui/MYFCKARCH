@@ -1,0 +1,67 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "modules-left": ["sway/mode", "sway/workspaces"],
+  "modules-center": ["sway/window"],
+  "modules-right": [ "power-profiles-daemon", "battery", "pulseaudio", "clock", "tray" ],
+  "sway/mode": {
+    "format": "{}",
+    "format-icons": {
+      "default": "  ",
+      "resize": " resize",
+      "layout": " layout",
+      "system": " system"
+    }
+  },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "persistent_workspaces": { }
+  },
+  "sway/window": {
+    "format": "{}",
+    "max-length": 80,
+    "separate-outputs": true
+  },
+  "clock": { "format": "{:%H:%M}", "format-alt": "{:%a %d/%m}", "interval": 60 },
+  "battery": {
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{timeTo} {power}W"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Perfil: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": { "default": [""] },
+    "on-click": "pavucontrol",
+    "scroll-step": 10
+  },
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "interval": 60
+  },
+  "tray": { "spacing": 8 }
+}
