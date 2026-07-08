@@ -1,11 +1,2 @@
 #!/usr/bin/env bash
-set -euo pipefail
-
-pacman -S --needed --noconfirm \
-  base base-devel \
-  efibootmgr fakeroot git \
-  less lib32-fakeroot \
-  linux linux-firmware \
-  openssh sudo ufw \
-  unzip wget zip \
-  htop zsh
+pacman -S --needed --noconfirm base{,-devel} efibootmgr {lib32-,}fakeroot git less linux{,-firmware} openssh sudo ufw wget {un,}zip htop zsh

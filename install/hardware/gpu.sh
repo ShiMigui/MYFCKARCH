@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
-pacman -S --needed --noconfirm \
-  mesa-utils \
-  vulkan-tools
+pacman -S --needed --noconfirm mesa-utils vulkan-tools
