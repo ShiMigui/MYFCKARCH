@@ -74,7 +74,6 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 for_window [app_id="nm-applet"] floating enable
-for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 
 bindsym $super+w exec $browser
